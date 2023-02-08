@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class InstantiateEnemy : MonoBehaviour
 {
+    [SerializeField] private Enemy _enemyTemplate;
     [SerializeField] private GameObject[] _spawnPoints;
-
-    private GameObject _enemyTemplate;
 
     public void Start()
     {
-        _enemyTemplate = GameObject.FindGameObjectWithTag("Enemy");
-
         StartCoroutine(SpawnEnemies());
     }
 
