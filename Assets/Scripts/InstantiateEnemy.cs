@@ -7,7 +7,9 @@ public class InstantiateEnemy : MonoBehaviour
     [SerializeField] private Enemy _enemyTemplate;
     [SerializeField] private GameObject[] _spawnPoints;
 
-    public void Start()
+    private float _seconds = 2;
+
+    private void Start()
     {
         StartCoroutine(SpawnEnemies());
     }
@@ -18,7 +20,7 @@ public class InstantiateEnemy : MonoBehaviour
         {
             Instantiate(_enemyTemplate, _spawnPoints[i].transform.position, Quaternion.identity);
 
-            yield return new WaitForSecondsRealtime(2f);
+            yield return new WaitForSecondsRealtime(_seconds);
         }
     }
 }
